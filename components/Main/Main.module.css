@@ -1,0 +1,136 @@
+.main {
+  height: 100vh;
+  background: var(--dark-blue);
+  color: var(--text-primary);
+  padding: 42px 123px 120px 154px;
+  flex: 1;
+}
+.mainTop {
+  height: 40px;
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  text-align: end;
+}
+.mainBotCardProgress {
+  width: 270px;
+  background-color: var(--text-primary);
+  height: 15px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.progressNumbers {
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+}
+.mainBotCardProgresser {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: yellow;
+  width: 50%;
+  height: 18px;
+  transition: 0.4s ease all;
+}
+.iconDirection {
+  background-color: var(--gri);
+  padding: 10px;
+  font-size: 32px;
+  border-radius: 50%;
+  transition: 0.3s ease all;
+  margin-right: 8px;
+}
+.active {
+  background-color: var(--text-primary) !important;
+  color: var(--light-blue) !important;
+}
+.mainTop > span {
+  background-color: var(--gri);
+  color: var(--text-primary);
+  font-weight: bold;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.mainMid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 66px;
+  margin-bottom: 120px;
+  height: 177px;
+  width: 700px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+.mainBot {
+  width: 700px;
+  margin: 0 auto;
+}
+.mainBot > h2 {
+  margin-bottom: 32px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+.mainBotCardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.mainBotBigCard,
+.mainBotSmallCard {
+  width: 328px;
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-primary);
+}
+.mainBotSmallCard {
+  justify-content: space-evenly;
+}
+.mainBotSmallCard > h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.mainBotSmallCard > p {
+  font-size: 64px;
+}
+.mainBotSmallCard > p > span {
+  font-size: 36px;
+}
+.mainBotBigCard > h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.mainBotCardMid {
+  font-weight: bold;
+
+  font-size: 64px;
+}
+.mainBotCardMid > span {
+  font-size: 36px;
+  font-weight: medium;
+}
+.mainBotCardBot {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainBotBigCard {
+  height: 204px;
+  margin-bottom: 48px;
+  padding-top: 22px;
+  padding-bottom: 35px;
+  color: var(--text-primary);
+}
+.mainBotSmallCard {
+  height: 159px;
+}

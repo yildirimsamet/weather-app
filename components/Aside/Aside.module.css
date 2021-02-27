@@ -1,0 +1,176 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: -460px;
+  width: 100%;
+  background-color: #1e213a;
+  height: 100%;
+  padding: 15px;
+  color: var(--text-primary);
+  transition: 0.3s ease all;
+}
+.menu > div:first-child {
+  text-align: end;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+.menu > div:nth-child(2) > input {
+  background: transparent;
+  padding-left: 25px;
+  width: 270px;
+  height: 50px;
+  border: 1px solid #e7e7eb;
+  outline: none;
+  color: var(--text-primary);
+  caret-color: var(--text-primary);
+}
+.menu > div:nth-child(2) > button {
+  width: 86px;
+  height: 52px;
+  outline: none;
+  border: none;
+  background: #3c47e9;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.aside {
+  width: 460px;
+  background: var(--light-blue);
+  height: 100vh;
+  padding: 42px 46px 52px 46px;
+  font-family: "Raleway";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.aside > div {
+  width: 100%;
+  text-align: center;
+  color: var(--text-primary);
+}
+.searchedP {
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: 0.3s ease all;
+  border: 1px solid var(--text-primary);
+  width: 300px;
+  margin: 5px auto;
+}
+.searchedP:hover {
+  background: var(--text-primary);
+  color: var(--dark-blue);
+}
+.aside > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aside > div:nth-child(3) {
+  font-size: 144px;
+}
+.aside > div:nth-child(3) > span {
+  font-size: 48px;
+  color: var(--text-secondary);
+}
+.aside > div:nth-child(4) {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.aside > div:nth-child(5) {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-third);
+}
+.aside > div:nth-child(5) > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+.aside > div:first-child > button {
+  background: var(--gri);
+  width: 160px;
+  height: 40px;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: medium;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.locationIconDiv {
+  width: 40px;
+  height: 40px;
+  background: var(--gri);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.locationIconDiv > svg {
+  color: var(--text-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+}
+
+.backgroundCloud1 {
+  width: 203px;
+  height: 150px;
+  left: -89px;
+  top: 103px;
+  opacity: 0.1;
+  position: absolute;
+  transition: 0.3s ease all;
+}
+
+.backgroundCloud2 {
+  width: 203px;
+  height: 150px;
+  left: 336px;
+  top: 116px;
+  opacity: 0.1;
+  position: absolute;
+  transition: 0.3s ease all;
+}
+
+.backgroundCloud3 {
+  width: 248px;
+  height: 183px;
+  left: -111px;
+  top: 266px;
+  opacity: 0.1;
+  position: absolute;
+  transition: 0.3s ease all;
+}
+
+.backgroundCloud4 {
+  width: 147px;
+  height: 109px;
+  left: 323px;
+  top: 370px;
+  opacity: 0.1;
+  position: absolute;
+  transition: 0.3s ease all;
+}
+.backgroundCloud1:hover,
+.backgroundCloud2:hover,
+.backgroundCloud3:hover,
+.backgroundCloud4:hover {
+  opacity: 1;
+}
+.locationBottom {
+  color: var(--text-third);
+  width: 25px;
+  height: 22px;
+}

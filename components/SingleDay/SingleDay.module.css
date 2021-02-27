@@ -1,0 +1,22 @@
+.singleDayWrapper {
+  width: 120px;
+  height: 177px;
+  background-color: var(--light-blue);
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.singleDayWrapper > div:nth-child(3) > span:nth-child(2) {
+  color: var(--text-secondary);
+  margin-left: 16px;
+}
+
+.singleDayWrapper > img {
+  max-width: 75px;
+  max-height: 75px;
+}
