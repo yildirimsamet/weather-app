@@ -4,6 +4,7 @@ import styles from "./Aside.module.css";
 const Aside = ({ data, city, setCity, setToday, setOtherDays }) => {
   const [img, setImg] = useState("/images/HeavyCloud.png");
   const [searchedCities, setSearchedCities] = useState([]);
+  const [input, setInput] = useState("");
   useEffect(() => {
     switch (data.weather_state_name) {
       case "Clear":
@@ -31,11 +32,7 @@ const Aside = ({ data, city, setCity, setToday, setOtherDays }) => {
         setImg("/images/LightCloud.png");
     }
   }, [data]);
-  // useEffect(()=>{
-  //   switch(data.){
 
-  //   }
-  // },[data])
   return (
     <div className={styles.aside}>
       <div>
@@ -96,19 +93,32 @@ const Aside = ({ data, city, setCity, setToday, setOtherDays }) => {
           <input
             id="search-input"
             onChange={(e) => {
-              fetch(
-                `https://www.metaweather.com/api/location/search/?query=${e.target.value}`
-              )
-                .then((res) => res.json())
-                .then((res) => setSearchedCities(res));
-              if (e.target.value === "" || undefined || null) {
-                setSearchedCities([]);
-              }
+              setInput(e.target.value);
             }}
+            value={input}
             placeholder="Search location"
             type="text"
           />
-          <button>Search</button>
+          <button
+            onClick={(e) => {
+              fetch(process.env.API, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  url: `https://www.metaweather.com/api/location/search/?query=${input}`,
+                }),
+              })
+                .then((res) => res.json())
+                .then((res) => setSearchedCities(res.data));
+              if (input === "" || undefined || null) {
+                setSearchedCities([]);
+              }
+            }}
+          >
+            Search
+          </button>
         </div>
         <div>
           {searchedCities.map((city, index) => {
@@ -117,15 +127,20 @@ const Aside = ({ data, city, setCity, setToday, setOtherDays }) => {
                 key={index}
                 className={styles.searchedP}
                 onClick={() => {
-                  fetch(
-                    `https://www.metaweather.com/api/location/${city.woeid}/`
-                  )
+                  fetch(process.env.API, {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      url: `https://www.metaweather.com/api/location/${city.woeid}/`,
+                    }),
+                  })
                     .then((res) => res.json())
                     .then((res) => {
-                      console.log(res.consolidated_weather[4]);
-                      setCity(res.title);
-                      setToday(res.consolidated_weather[0]);
-                      setOtherDays(res.consolidated_weather.splice(1));
+                      setCity(res.data.title);
+                      setToday(res.data.consolidated_weather[0]);
+                      setOtherDays(res.data.consolidated_weather.splice(1));
                       setSearchedCities([]);
                       document.getElementById("search-input").value = "";
                       document.getElementById("menu").style.left = "-460px";

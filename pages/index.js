@@ -15,18 +15,31 @@ export default function Home() {
   }
 
   async function showPosition(position) {
-    fetch(
-      `https://www.metaweather.com/api/location/search/?lattlong=${position.coords.latitude},${position.coords.longitude}`
-    )
+    fetch(process.env.API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url: `https://www.metaweather.com/api/location/search/?lattlong=${position.coords.latitude},${position.coords.longitude}`,
+      }),
+    })
       .then((res) => res.json())
       .then((res) => {
-        fetch(`https://www.metaweather.com/api/location/${res[0].woeid}/`)
+        fetch(process.env.API, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            url: `https://www.metaweather.com/api/location/${res.data[0].woeid}/`,
+          }),
+        })
           .then((res) => res.json())
           .then((res) => {
-            console.log(res.consolidated_weather[4]);
-            setCity(res.title);
-            setToday(res.consolidated_weather[0]);
-            setOtherDays(res.consolidated_weather.splice(1));
+            setCity(res.data.title);
+            setToday(res.data.consolidated_weather[0]);
+            setOtherDays(res.data.consolidated_weather.splice(1));
           });
       });
   }
